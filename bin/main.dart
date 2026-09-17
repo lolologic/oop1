@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:oop1/teilnehmer.dart';
+import 'package:path/path.dart';
 
 void main() {
   final teilnehmer = erstelleTeilnehmerListe();
@@ -76,3 +79,61 @@ int berechneAlter(Teilnehmer teilnehmer) {
 
   return alter;
 }
+/*
+Teilnehmer erstelleTeilnehmer() {
+  print('Füge Teilnehmer hinzu.');
+
+  String? vorname;
+
+  while (vorname == null || vorname.trim().isEmpty) {
+    stdout.write('Vorname: ');
+    vorname = stdin.readLineSync();
+  }
+
+  String? nachname;
+
+  while (nachname == null || nachname.trim().isEmpty) {
+    stdout.write('Nachname: ');
+    nachname = stdin.readLineSync();
+  }
+
+  String? geschlecht;
+
+  stdout.write('Geschlecht (optional): ');
+  geschlecht = stdin.readLineSync();
+
+  geschlecht = geschlecht?.trim().toLowerCase();
+
+  while (geschlecht != '' && geschlecht != 'w' && geschlecht != 'm' && geschlecht != 'd') {
+    print('Gültige Eingaben: ENTER, (w), (m), (d).');
+    stdout.write('Geschlecht(optional): ');
+    geschlecht = stdin.readLineSync();
+    geschlecht = geschlecht?.trim().toLowerCase();
+  }
+
+  switch (geschlecht) {
+    case 'w':
+      geschlecht = 'weiblich';
+      break;
+    case 'm':
+      geschlecht = 'männlich';
+      break;
+    case 'd':
+      geschlecht = 'divers';
+      break;
+    case '':
+      geschlecht = null;
+      break;
+  }
+
+  String? geburtsdatum;
+
+  while (geburtsdatum == null || geburtsdatum.trim().isEmpty) {
+    stdout.write('Geburtsdatum (TT.MM.JJJJ): ');
+    geburtsdatum = stdin.readLineSync();
+
+    geburtsdatum.split('.');
+  }
+
+}
+*/
