@@ -1,7 +1,4 @@
-import 'dart:io';
-
 import 'package:oop1/teilnehmer.dart';
-import 'package:path/path.dart';
 
 void main() {
   final teilnehmer = erstelleTeilnehmerListe();
@@ -10,11 +7,7 @@ void main() {
 
 List<Teilnehmer> erstelleTeilnehmerListe() {
   final teilnehmer = <Teilnehmer>[
-    Teilnehmer(
-      vorname: 'Max',
-      nachname: 'Mustermann',
-      geburtsdatum: DateTime(2000, 1, 1),
-    ),
+    Teilnehmer(vorname: 'Max', nachname: 'Mustermann', geburtsdatum: DateTime(2000, 1, 1)),
     Teilnehmer(
       vorname: 'Anna',
       nachname: 'Schmidt',
@@ -22,63 +15,33 @@ List<Teilnehmer> erstelleTeilnehmerListe() {
       geburtsdatum: DateTime(1998, 3, 14),
       abschlussnote: 2,
     ),
-    Teilnehmer(
-      vorname: 'Mehmet',
-      nachname: 'Yilmaz',
-      geschlecht: 'männlich',
-      geburtsdatum: DateTime(2001, 7, 22),
-    ),
-    Teilnehmer(
-      vorname: 'Alex',
-      nachname: 'Meyer',
-      geburtsdatum: DateTime(1995, 11, 5),
-      abschlussnote: 1,
-    ),
-    Teilnehmer(
-      vorname: 'Sophie',
-      nachname: 'Wagner',
-      geschlecht: 'weiblich',
-      geburtsdatum: DateTime(2003, 1, 30),
-    ),
+    Teilnehmer(vorname: 'Mehmet', nachname: 'Yilmaz', geschlecht: 'männlich', geburtsdatum: DateTime(2001, 7, 22)),
+    Teilnehmer(vorname: 'Alex', nachname: 'Meyer', geburtsdatum: DateTime(1995, 11, 5), abschlussnote: 1),
+    Teilnehmer(vorname: 'Sophie', nachname: 'Wagner', geschlecht: 'weiblich', geburtsdatum: DateTime(2003, 1, 30)),
   ];
 
   return teilnehmer;
 }
 
 void ausgabeTeilnehmerListe(List<Teilnehmer> teilnehmer) {
-  for (int i = 0; i < teilnehmer.length; i++) {
-    print('Vorname: ${teilnehmer[i].vorname}');
-    print('Nachname: ${teilnehmer[i].nachname}');
+  for (final tn in teilnehmer) {
+    print('Vorname: ${tn.vorname}');
+    print('Nachname: ${tn.nachname}');
 
-    if (teilnehmer[i].geschlecht != null) {
-      print('Geschlecht: ${teilnehmer[i].geschlecht}');
+    if (tn.geschlecht != null) {
+      print('Geschlecht: ${tn.geschlecht}');
     }
 
-    print('Alter: ${berechneAlter(teilnehmer[i])}');
+    print('Alter: ${tn.alter}');
 
-    if (teilnehmer[i].abschlussnote != null) {
-      print('Abschlussnote: ${teilnehmer[i].abschlussnote}');
+    if (tn.abschlussnote != null) {
+      print('Abschlussnote: ${tn.abschlussnote}');
     }
 
     print('');
   }
 }
 
-int berechneAlter(Teilnehmer teilnehmer) {
-  final dateNow = DateTime.now();
-
-  int alter = dateNow.year - teilnehmer.geburtsdatum.year;
-
-  if (
-    (dateNow.month < teilnehmer.geburtsdatum.month) || 
-    (dateNow.month == teilnehmer.geburtsdatum.month && 
-    dateNow.day < teilnehmer.geburtsdatum.day)
-    ) {
-    alter -= 1;
-  }
-
-  return alter;
-}
 /*
 Teilnehmer erstelleTeilnehmer() {
   print('Füge Teilnehmer hinzu.');

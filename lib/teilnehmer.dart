@@ -10,6 +10,19 @@ class Teilnehmer {
     required this.nachname,
     this.geschlecht,
     required this.geburtsdatum,
-    this.abschlussnote
-    });
+    this.abschlussnote,
+  });
+
+  int get alter {
+    final dateNow = DateTime.now();
+
+    int alter = dateNow.year - geburtsdatum.year;
+
+    if ((dateNow.month < geburtsdatum.month) ||
+        (dateNow.month == geburtsdatum.month && dateNow.day < geburtsdatum.day)) {
+      alter -= 1;
+    }
+
+    return alter;
+  }
 }
