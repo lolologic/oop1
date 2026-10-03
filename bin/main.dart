@@ -69,11 +69,9 @@ int berechneAlter(Teilnehmer teilnehmer) {
 
   int alter = dateNow.year - teilnehmer.geburtsdatum.year;
 
-  if (
-    (dateNow.month < teilnehmer.geburtsdatum.month) || 
-    (dateNow.month == teilnehmer.geburtsdatum.month && 
-    dateNow.day < teilnehmer.geburtsdatum.day)
-    ) {
+  if ((dateNow.month < teilnehmer.geburtsdatum.month) ||
+      (dateNow.month == teilnehmer.geburtsdatum.month &&
+          dateNow.day < teilnehmer.geburtsdatum.day)) {
     alter -= 1;
   }
 

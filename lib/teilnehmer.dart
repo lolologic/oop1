@@ -10,6 +10,6 @@ class Teilnehmer {
     required this.nachname,
     this.geschlecht,
     required this.geburtsdatum,
-    this.abschlussnote
-    });
+    this.abschlussnote,
+  });
 }
